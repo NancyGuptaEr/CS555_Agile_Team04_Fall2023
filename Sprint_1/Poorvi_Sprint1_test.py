@@ -21,7 +21,7 @@ class TestGedcomFile(unittest.TestCase):
 
     def test_us04(self):
         # Test listing upcoming birthdays
-        us04(individuals)  # There's no need to assert in this test
+        us04(individuals)  
 
 if __name__ == '__main__':
     unittest.main()
