@@ -43,4 +43,8 @@ Samuel /Smith/ has 5 marriages.
 Sera /Garcia/ has 5 marriages.
 Jessica /Jones/ has 5 marriages.
 Testcase 15 passed
-..
+Test 15 passed successfully
+.Test 16 passed succesfully
+.
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
