@@ -16,10 +16,24 @@ class TestGedcomFile(unittest.TestCase):
         # Test the number of divorces in families
         num_divorces = us11(families)
         self.assertTrue(num_divorces >= 0)  # Ensure the result is non-negative
+    def test_us11(self):  
+        self.assertTrue(us03([], families))
+    def test_us11(self):     
+        self.assertTrue(us03(individuals, []))
+    def test_us11(self):        
+        self.assertTrue(us03([], []))
+    def test_us11(self):     
+        self.assertTrue(us03(families,individuals))
 
     def test_us12(self):
         # Test unique last names in families
-        self.assertTrue(us12(individuals))
+        self.assertFalse(us12(individuals))
+    def test_us12(self):     
+        self.assertFalse(us03(individuals, []))
+    def test1_us12(self):        
+        self.assertTrue(us03([], []))
+    def test1_us12(self):     
+        self.assertFalse(us03(families,individuals))
 
 if __name__ == '__main__':
     unittest.main()
