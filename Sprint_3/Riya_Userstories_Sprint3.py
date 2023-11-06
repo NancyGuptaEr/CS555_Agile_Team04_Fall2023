@@ -39,34 +39,29 @@ def us21(families, individuals):
     return True
 
 def us22(individuals, families):
-    """
-    Ensure the age difference between spouses is appropriate in the family.
+    all_ids = set()
+    non_unique_ids = []
 
-    :param individuals: List of individual objects
-    :param families: List of family objects
-    :return: True if age difference between spouses is appropriate, False otherwise
-    """
+    # Checking individual IDs
+    for ind in individuals:
+        ind_id = ind.id
+        if ind_id in all_ids:
+            non_unique_ids.append(ind_id)
+        else:
+            all_ids.add(ind_id)
+
+    # Checking family IDs
     for family in families:
-        husband_id = family.husbandId
-        wife_id = family.wifeId
+        family_id = family.id
+        if family_id in all_ids:
+            non_unique_ids.append(family_id)
+        else:
+            all_ids.add(family_id)
 
-        # Find husband and wife details
-        husband = next((ind for ind in individuals if ind.id == husband_id), None)
-        wife = next((ind for ind in individuals if ind.id == wife_id), None)
+    if non_unique_ids:
+        print(f"ERROR: US22: Non-unique IDs found: {', '.join(non_unique_ids)}")
+        return False
+    else:
+        print("US22: All IDs are unique.")
+        return True
 
-        if husband and wife:
-            husband_birth_date = datetime.strptime(husband.birthday, "%Y/%m/%d").date()
-            wife_birth_date = datetime.strptime(wife.birthday, "%Y/%m/%d").date()
-
-            # Calculate the age difference
-            age_difference = abs((husband_birth_date - wife_birth_date).days) / 365
-
-            # Define the allowed age difference between spouses, for instance, less than 120 years
-            if age_difference >= 120:  # Adjust the threshold as needed
-                print(f"ERROR: US22: The age difference between spouses in Family {family.id} is not appropriate.")
-                print(f"  - Husband: {husband.name} (Birthdate: {husband.birthday})")
-                print(f"  - Wife: {wife.name} (Birthdate: {wife.birthday})")
-                return False
-
-    print("US22: Age difference between spouses is appropriate.")
-    return True

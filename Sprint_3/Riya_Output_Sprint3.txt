@@ -29,11 +29,10 @@ Family
 | F4 | 2018/07/10 |     NA     |     I7     | William /Turner/ |    I6   |  Selina /Smith/  |     {'I11'}      |
 | F5 | 2017/05/7  | 2018/12/18 |     I5     |   John /Smith/   |   I13   |  Sera /Garcia/   |     {'I12'}      |
 +----+------------+------------+------------+------------------+---------+------------------+------------------+
-US22: Age difference between spouses is appropriate.
-.US21: Spouses have the correct gender.
+US21: Spouses have the correct gender.
+.US22: All IDs are unique.
 .
 ----------------------------------------------------------------------
-Ran 2 tests in 0.021s
+Ran 2 tests in 0.004s
 
 OK
-PS C:\Users\riyad\OneDrive\Desktop\agile_project\CS555_Agile_Team04_Fall2023\Sprint_3>

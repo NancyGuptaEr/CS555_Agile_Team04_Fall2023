@@ -18,10 +18,12 @@ class TestUserStorySpouseGender(unittest.TestCase):
         result = us21(self.families, self.individuals)
         self.assertTrue(result, "Spouses have correct genders.")
         
-    def test_age_difference(self):
-        # Check for the age difference between spouses in each family
-        result = us22(self.individuals, self.families)
-        self.assertTrue(result, "Age difference between spouses is appropriate")
 
+    def test_us22(self):
+        individuals = individual_parser("gedcom_test.ged")
+        families = family_parser("gedcom_test.ged")
+
+        result = us22(individuals, families)
+        self.assertTrue(result, "US22 failed: Non-unique IDs found.")
 if __name__ == '__main__':
     unittest.main()
